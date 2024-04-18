@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Golden Image</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'golden_image/style.css' %}">
+</head>
+<body>
+
+<h1 class="centered">GOLDEN IMAGE MANAGER</h1>
+
+<table>
+    <tr>
+        <th>Image Name</th>
+        <th>Confluence Image Version</th>
+        <th>Golden Image Version</th>
+        <th>GI CHECK</th>
+    </tr>
+    {% for image in images %}
+    <tr>
+        <td>{{ image.name }}</td>
+        <td>{{ image.confluence_version }}</td>
+        <td>{{ image.golden_image_version }}</td>
+        <td class="centered">{% if image.is_golden_image %}<span class="tick-box">&#10004;</span>{% else %}<span class="question-box">&#63;</span>{% endif %}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+
